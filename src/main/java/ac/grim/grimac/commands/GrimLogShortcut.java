@@ -6,10 +6,10 @@ import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Default;
 import org.bukkit.command.CommandSender;
 
-@CommandAlias("gl")
+@CommandAlias("bl")
 public class GrimLogShortcut extends BaseCommand {
     @Default
-    @CommandPermission("grim.log")
+    @CommandPermission("blade.log")
     public void grimLog(CommandSender sender, int flagId) { // TODO: There has to be a better way to make an alias
         new GrimLog().onLog(sender, flagId);
     }

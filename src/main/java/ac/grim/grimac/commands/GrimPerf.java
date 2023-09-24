@@ -8,10 +8,10 @@ import co.aikar.commands.annotation.Subcommand;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
-@CommandAlias("grim|grimac")
+@CommandAlias("blade")
 public class GrimPerf extends BaseCommand {
     @Subcommand("perf|performance")
-    @CommandPermission("grim.performance")
+    @CommandPermission("blade.performance")
     public void onPerformance(CommandSender sender) {
         double millis = MovementCheckRunner.predictionNanos / 1000000;
         double longMillis = MovementCheckRunner.longPredictionNanos / 1000000;

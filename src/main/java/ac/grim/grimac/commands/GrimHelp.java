@@ -9,11 +9,11 @@ import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Subcommand;
 import org.bukkit.command.CommandSender;
 
-@CommandAlias("grim|grimac")
+@CommandAlias("blade")
 public class GrimHelp extends BaseCommand {
     @Default
     @Subcommand("help")
-    @CommandPermission("grim.help")
+    @CommandPermission("blade.help")
     public void onHelp(CommandSender sender) {
         for (String string : GrimAPI.INSTANCE.getConfigManager().getConfig().getStringList("help")) {
             string = MessageUtil.format(string);

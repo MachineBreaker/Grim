@@ -18,10 +18,10 @@ import com.github.retrooper.packetevents.manager.server.ServerVersion;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandAlias("grim|grimac")
+@CommandAlias("blade")
 public class GrimProfile extends BaseCommand {
     @Subcommand("profile")
-    @CommandPermission("grim.profile")
+    @CommandPermission("blade.profile")
     @CommandCompletion("@players")
     public void onConsoleDebug(CommandSender sender, OnlinePlayer target) {
         Player player = null;

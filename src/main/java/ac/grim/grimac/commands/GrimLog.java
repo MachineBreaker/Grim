@@ -16,10 +16,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-@CommandAlias("grim|grimac")
+@CommandAlias("blade")
 public class GrimLog extends BaseCommand {
     @Subcommand("log|logs")
-    @CommandPermission("grim.log")
+    @CommandPermission("blade.log")
     public void onLog(CommandSender sender, int flagId) {
         StringBuilder builder = SuperDebug.getFlag(flagId);
 

@@ -17,10 +17,10 @@ import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandAlias("grim|grimac")
+@CommandAlias("blade")
 public class GrimSpectate extends BaseCommand {
     @Subcommand("spectate")
-    @CommandPermission("grim.spectate")
+    @CommandPermission("blade.spectate")
     @CommandCompletion("@players")
     public void onSpectate(CommandSender sender, @Optional OnlinePlayer target) {
         if (!(sender instanceof Player)) return;

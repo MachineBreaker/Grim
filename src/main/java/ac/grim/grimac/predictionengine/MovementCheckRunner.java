@@ -7,10 +7,7 @@ import ac.grim.grimac.checks.impl.prediction.Phase;
 import ac.grim.grimac.checks.type.PositionCheck;
 import ac.grim.grimac.manager.SetbackTeleportUtil;
 import ac.grim.grimac.player.GrimPlayer;
-import ac.grim.grimac.predictionengine.movementtick.MovementTickerHorse;
-import ac.grim.grimac.predictionengine.movementtick.MovementTickerPig;
-import ac.grim.grimac.predictionengine.movementtick.MovementTickerPlayer;
-import ac.grim.grimac.predictionengine.movementtick.MovementTickerStrider;
+import ac.grim.grimac.predictionengine.movementtick.*;
 import ac.grim.grimac.predictionengine.predictions.PredictionEngineNormal;
 import ac.grim.grimac.predictionengine.predictions.rideable.BoatPredictionEngine;
 import ac.grim.grimac.utils.anticheat.update.PositionUpdate;
@@ -502,6 +499,9 @@ public class MovementCheckRunner extends Check implements PositionCheck {
             } else if (player.compensatedEntities.getSelf().getRiding() instanceof PacketEntityHorse) {
                 new PlayerBaseTick(player).doBaseTick();
                 new MovementTickerHorse(player).livingEntityAIStep();
+            } else if (player.compensatedEntities.getSelf().getRiding().type == EntityTypes.CAMEL) {
+                new PlayerBaseTick(player).doBaseTick();
+                new MovementTickerCamel(player).livingEntityAIStep();
             } else if (player.compensatedEntities.getSelf().getRiding().type == EntityTypes.PIG) {
                 new PlayerBaseTick(player).doBaseTick();
                 new MovementTickerPig(player).livingEntityAIStep();

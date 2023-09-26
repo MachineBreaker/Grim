@@ -496,12 +496,12 @@ public class MovementCheckRunner extends Check implements PositionCheck {
                 new PlayerBaseTick(player).doBaseTick();
                 // Speed doesn't affect anything with boat movement
                 new BoatPredictionEngine(player).guessBestMovement(0.1f, player);
-            } else if (player.compensatedEntities.getSelf().getRiding() instanceof PacketEntityHorse) {
-                new PlayerBaseTick(player).doBaseTick();
-                new MovementTickerHorse(player).livingEntityAIStep();
             } else if (player.compensatedEntities.getSelf().getRiding().type == EntityTypes.CAMEL) {
                 new PlayerBaseTick(player).doBaseTick();
                 new MovementTickerCamel(player).livingEntityAIStep();
+            } else if (player.compensatedEntities.getSelf().getRiding() instanceof PacketEntityHorse) {
+                new PlayerBaseTick(player).doBaseTick();
+                new MovementTickerHorse(player).livingEntityAIStep();
             } else if (player.compensatedEntities.getSelf().getRiding().type == EntityTypes.PIG) {
                 new PlayerBaseTick(player).doBaseTick();
                 new MovementTickerPig(player).livingEntityAIStep();

@@ -22,7 +22,7 @@ public class MovementTickerCamel extends MovementTickerLivingVehicle {
         float forwardsInput = player.vehicleData.vehicleForward;
 
         if (forwardsInput <= 0.0F) {
-            forwardsInput = 0.0F;
+            forwardsInput = 0;
         }
 
         this.movementInput = new Vector(horizInput, 0, forwardsInput);

@@ -37,8 +37,8 @@ public class PredictionEngineRideableUtils {
 
         // detect if camel to adjust jumping mechanic
         if (movementSpeed == 0.09F && jumpStrength == 0.42F) {
-            if (player.vehicleData.horseJump > 0.0F && !player.vehicleData.horseJumping && player.lastOnGround && player.vehicleData.dashCooldown <= 0) {
-                d0 = jumpStrength * (double) JumpPower.getPlayerJumpFactor(player) + 0;
+            if (player.vehicleData.horseJump > 0.0F && !player.vehicleData.horseJumping && player.lastOnGround) {
+                d0 = jumpStrength * (double) JumpPower.getPlayerJumpFactor(player);
 
                 if (player.compensatedEntities.getJumpAmplifier() != null) {
                     d1 = d0 + ((player.compensatedEntities.getJumpAmplifier() + 1) * 0.1F);
@@ -46,17 +46,16 @@ public class PredictionEngineRideableUtils {
                     d1 = d0;
                 }
 
-                player.vehicleData.horseJumping = true;
-                player.vehicleData.dashCooldown = 55;
-
                 double multiplier = (double) (22.2222F * player.vehicleData.horseJump) * movementSpeed * (double) BlockProperties.getBlockSpeedFactor(player, player.mainSupportingBlockData, new Vector3d(player.x, player.y, player.z));
-                Vector look = ReachUtils.getLook(player, player.xRot, player.yRot).multiply(new Vector(1.0D, 0.0D, 1.0D)).normalize().multiply(multiplier).add(new Vector(0D, (double) (1.4285F * player.vehicleData.horseJump) * d1, 0D));
+                Vector look = ReachUtils.getLook(player, player.xRot, player.yRot).multiply(new Vector(1.0, 0.0, 1.0)).normalize().multiply(multiplier).add(new Vector(0, (double) (1.4285F * player.vehicleData.horseJump) * d1, 0));
 
                 for (VectorData vectorData : possibleVectors) {
                     vectorData.vector.add(look);
                 }
-            }
 
+                player.vehicleData.horseJumping = true;
+                player.vehicleData.dashCooldown = 55;
+            }
         } else {
             // If the player wants to jump on a horse
             // Listen to Entity Action -> start jump with horse, stop jump with horse

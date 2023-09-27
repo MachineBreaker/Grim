@@ -15,14 +15,15 @@ public class MovementTickerCamel extends MovementTickerLivingVehicle {
 
         if (!horsePacket.hasSaddle) return;
 
-        player.speed = horsePacket.movementSpeedAttribute;
+        float additional = player.compensatedEntities.hasSprintingAttributeEnabled && player.vehicleData.dashCooldown <= 0 ? 0.1f : 0.0f;
+        player.speed = horsePacket.movementSpeedAttribute + additional;
 
         // Setup player inputs
         float horizInput = player.vehicleData.vehicleHorizontal * 0.5F;
         float forwardsInput = player.vehicleData.vehicleForward;
 
         if (forwardsInput <= 0.0F) {
-            forwardsInput = 0;
+            forwardsInput *= 0.25F;
         }
 
         this.movementInput = new Vector(horizInput, 0, forwardsInput);
